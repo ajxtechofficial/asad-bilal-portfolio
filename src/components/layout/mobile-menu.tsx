@@ -89,7 +89,7 @@ export function MobileMenu() {
         aria-expanded={isOpen}
         aria-controls="mobile-navigation"
         aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-        className="inline-flex h-9 w-9 cursor-pointer items-center justify-center border border-rule bg-transparent text-ink transition-colors duration-150 hover:border-accent hover:text-accent-text"
+        className="inline-flex h-9 w-9 cursor-pointer items-center justify-center border border-rule bg-surface/60 text-ink transition-colors duration-150 hover:border-accent hover:bg-surface hover:text-accent-text"
       >
         {isOpen ? (
           <X className="h-4 w-4" aria-hidden="true" />
@@ -103,7 +103,7 @@ export function MobileMenu() {
           <div
             aria-hidden="true"
             onClick={closeMenu}
-            className="fixed inset-0 bg-canvas/85"
+            className="fixed inset-0 bg-ink/25 dark:bg-canvas/85"
           />
 
           <div
@@ -149,7 +149,7 @@ export function MobileMenu() {
                               : "text-ink hover:text-accent-text"
                           )}
                         >
-                          <span className="font-display text-3xl font-bold uppercase tracking-tight">
+                          <span className="font-display text-3xl font-normal tracking-tight">
                             {item.label}
                           </span>
                           <span className="font-mono text-xs tracking-widest text-ink-secondary">

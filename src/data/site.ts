@@ -22,8 +22,8 @@ export const siteConfig = {
   },
   navLinks: [
     { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
     { label: "Projects", href: "/projects" },
+    { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ] satisfies readonly NavItem[],
   socialLinks: [

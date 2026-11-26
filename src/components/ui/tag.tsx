@@ -10,8 +10,8 @@ export interface TagProps {
 }
 
 const variantStyles: Record<TagVariant, string> = {
-  default: "border-rule bg-surface text-ink",
-  accent: "border-accent/60 bg-accent/10 text-accent-text",
+  default: "border-rule bg-surface-muted/60 text-ink",
+  accent: "border-accent/45 bg-accent/10 text-accent-text",
   muted: "border-rule bg-transparent text-ink-secondary",
 };
 

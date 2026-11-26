@@ -49,7 +49,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
       aria-label={label}
       title={label}
       className={cn(
-        "inline-flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center border border-rule bg-transparent text-ink transition-colors duration-150 hover:border-accent hover:text-accent-text",
+        "inline-flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center border border-rule bg-surface/60 text-ink transition-colors duration-150 hover:border-accent hover:bg-surface hover:text-accent-text",
         className
       )}
     >

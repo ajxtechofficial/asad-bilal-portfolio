@@ -51,40 +51,57 @@ const socialIcons: Record<
 };
 
 /**
- * Editorial global footer with brand details, primary navigation, verified social links, and copyright.
+ * Atmospheric editorial footer & contact colophon with verified social links and dynamic copyright.
  */
 export function Footer() {
   return (
-    <footer className="border-t border-rule bg-canvas">
-      <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8 lg:px-10">
-        <div className="grid gap-10 md:grid-cols-12">
-          <div className="space-y-3 md:col-span-5">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2.5 font-display text-2xl font-extrabold uppercase tracking-[0.06em] text-ink transition-colors duration-150 hover:text-accent-text"
+    <footer className="border-t border-rule bg-surface-recessed">
+      <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20 lg:px-10">
+        {/* Top Editorial Invitation */}
+        <div className="mx-auto max-w-2xl space-y-6 border-b border-rule pb-14 text-center">
+          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent-text">
+            Contact &amp; Inquiries
+          </p>
+          <h2 className="font-display text-3xl font-normal leading-[1.12] tracking-tight text-ink sm:text-4xl lg:text-5xl">
+            Let&apos;s collaborate on backend systems, APIs, or{" "}
+            <em className="italic">applied AI.</em>
+          </h2>
+          <div className="pt-1">
+            <a
+              href={`mailto:${siteConfig.email}`}
+              className="inline-flex items-center gap-2.5 border border-rule-strong bg-surface px-5 py-2.5 font-mono text-xs uppercase tracking-[0.14em] text-ink transition-colors duration-200 hover:border-accent hover:bg-canvas hover:text-accent-text"
             >
-              <span aria-hidden="true" className="inline-block h-2.5 w-2.5 bg-accent" />
-              <span>{siteConfig.wordmark}</span>
-            </Link>
-            <p className="font-mono text-xs uppercase tracking-[0.14em] text-ink-secondary">
+              <Mail className="h-3.5 w-3.5 text-accent-text" aria-hidden="true" />
+              <span>{siteConfig.email}</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Structured 3-Column Metadata */}
+        <div className="grid gap-10 py-12 text-left sm:grid-cols-3">
+          <div className="space-y-3">
+            <h3 className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink-muted">
+              Profile
+            </h3>
+            <p className="font-display text-xl text-ink">{siteConfig.name}</p>
+            <p className="text-sm leading-relaxed text-ink-secondary">
               {siteConfig.title}
             </p>
-            <p className="text-sm text-ink-secondary">{siteConfig.location}</p>
+            <p className="font-mono text-xs text-ink-muted">
+              {siteConfig.location}
+            </p>
           </div>
 
-          <nav
-            aria-label="Footer navigation"
-            className="space-y-3 md:col-span-3"
-          >
-            <h2 className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink-muted">
+          <nav aria-label="Footer navigation" className="space-y-3">
+            <h3 className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink-muted">
               Navigation
-            </h2>
+            </h3>
             <ul className="space-y-2">
               {siteConfig.navLinks.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="inline-block font-mono text-xs uppercase tracking-[0.14em] text-ink-secondary transition-colors duration-150 hover:text-accent-text"
+                    className="inline-block text-sm text-ink-secondary transition-colors duration-150 hover:text-ink"
                   >
                     {item.label}
                   </Link>
@@ -93,10 +110,10 @@ export function Footer() {
             </ul>
           </nav>
 
-          <div className="space-y-3 md:col-span-4">
-            <h2 className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink-muted">
+          <div className="space-y-3">
+            <h3 className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink-muted">
               Connect
-            </h2>
+            </h3>
             <ul className="space-y-2.5">
               {siteConfig.socialLinks.map((social) => {
                 const Icon = socialIcons[social.id];
@@ -112,7 +129,7 @@ export function Footer() {
                           ? `${social.label} (opens in a new tab)`
                           : `${social.label}: ${siteConfig.email}`
                       }
-                      className="group inline-flex items-center gap-2.5 text-sm text-ink-secondary transition-colors duration-150 hover:text-accent-text"
+                      className="group inline-flex items-center gap-2.5 text-sm text-ink-secondary transition-colors duration-150 hover:text-ink"
                     >
                       <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
                       <span className="font-mono text-xs tracking-wide">
@@ -132,9 +149,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-rule pt-6 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted sm:flex-row sm:items-center sm:justify-between">
+        {/* Colophon Bar */}
+        <div className="flex flex-col items-start justify-between gap-3 border-t border-rule pt-6 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted sm:flex-row sm:items-center">
           <p>
-            &copy; <CopyrightYear fallbackYear={2026} /> {siteConfig.copyrightStatement}
+            &copy; <CopyrightYear fallbackYear={2026} />{" "}
+            {siteConfig.copyrightStatement}
           </p>
           {siteConfig.availability.active ? (
             <p className="inline-flex items-center gap-2 text-ink-secondary">

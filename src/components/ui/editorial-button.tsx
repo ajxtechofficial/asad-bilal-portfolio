@@ -29,7 +29,7 @@ const variantStyles: Record<EditorialButtonVariant, string> = {
   primary:
     "border-accent bg-accent text-accent-ink hover:border-accent-hover hover:bg-accent-hover",
   secondary:
-    "border-rule-strong bg-transparent text-ink hover:border-accent hover:text-accent-text",
+    "border-rule-strong bg-transparent text-ink hover:border-ink hover:bg-surface",
 };
 
 const sizeStyles: Record<EditorialButtonSize, string> = {

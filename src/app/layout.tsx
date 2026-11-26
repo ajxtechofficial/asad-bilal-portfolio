@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import {
-  Barlow_Condensed,
   JetBrains_Mono,
+  Newsreader,
   Plus_Jakarta_Sans,
 } from "next/font/google";
 import { Footer } from "@/components/layout/footer";
@@ -10,10 +10,10 @@ import { SkipLink } from "@/components/layout/skip-link";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import "./globals.css";
 
-const barlowCondensed = Barlow_Condensed({
+const newsreader = Newsreader({
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
-  variable: "--font-barlow-condensed",
+  style: ["normal", "italic"],
+  variable: "--font-newsreader",
   display: "swap",
 });
 
@@ -43,7 +43,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${barlowCondensed.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} h-full`}
+      className={`${newsreader.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} h-full`}
     >
       <body className="min-h-full overflow-x-hidden bg-canvas text-ink font-sans antialiased">
         <ThemeProvider

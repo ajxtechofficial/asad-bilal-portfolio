@@ -3,62 +3,103 @@
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 /*
- * Semantic Design Tokens
- * Core palette:
- *   Deep Forest Green: #09231B
- *   Deep Red:          #B52D29
- *   Warm Ivory:        #E9E7DC
- *   Sage Green:        #82968A
+ * Semantic Design System — Atmospheric Editorial
+ * Dark (default): Near-black obsidian (#090a0c) + warm editorial ivory (#efece4)
+ * Light: Warm gallery paper (#ede8dc) + deep charcoal ink (#141518)
  */
 :root,
 [data-theme="dark"] {
   color-scheme: dark;
 
-  --bg-canvas: #09231b;
-  --bg-surface: #0d2e24;
-  --bg-surface-muted: #123a2d;
+  --bg-canvas: #090a0c;
+  --bg-surface: #111317;
+  --bg-surface-recessed: #0e1013;
+  --bg-surface-muted: #181b21;
 
-  --text-primary: #e9e7dc;
-  --text-secondary: #82968a;
-  --text-muted: #6c8074;
+  --text-primary: #efece4;
+  --text-secondary: #a19e95;
+  --text-muted: #76746c;
 
-  --accent-primary: #b52d29;
-  --accent-hover: #c93834;
-  --accent-text: #e35d58;
-  --accent-ink: #e9e7dc;
+  --accent-primary: #c24130;
+  --accent-hover: #d3503e;
+  --accent-text: #e26d5c;
+  --accent-ink: #f6f4ee;
 
   --sage-base: #82968a;
-  --border-rule: rgba(233, 231, 220, 0.2);
-  --border-strong: rgba(233, 231, 220, 0.45);
-  --focus-ring: #e9e7dc;
+  --border-rule: rgba(239, 236, 228, 0.14);
+  --border-strong: rgba(239, 236, 228, 0.32);
+  --focus-ring: #efece4;
+
+  /* Atmospheric Studio Environments */
+  --hero-ambient-wash: radial-gradient(
+    circle at 72% 44%,
+    rgba(116, 148, 156, 0.14) 0%,
+    rgba(194, 65, 48, 0.06) 36%,
+    transparent 68%
+  );
+  --carousel-ambient-wash: radial-gradient(
+    ellipse at center,
+    rgba(116, 148, 156, 0.12) 0%,
+    rgba(194, 65, 48, 0.05) 45%,
+    transparent 75%
+  );
+  --portrait-studio-bg: radial-gradient(
+    circle at 50% 38%,
+    rgba(130, 150, 138, 0.24) 0%,
+    rgba(17, 19, 23, 0.9) 62%,
+    #090a0c 100%
+  );
+  --card-shadow: 0 24px 80px -24px rgba(0, 0, 0, 0.55);
 }
 
 [data-theme="light"] {
   color-scheme: light;
 
-  --bg-canvas: #e9e7dc;
-  --bg-surface: #dfdcd0;
-  --bg-surface-muted: #d5d1c2;
+  --bg-canvas: #ede8dc;
+  --bg-surface: #f5f1e7;
+  --bg-surface-recessed: #e3ded0;
+  --bg-surface-muted: #dbd5c5;
 
-  --text-primary: #09231b;
-  /* Darkened sage derivative for WCAG AA body readability on warm ivory */
-  --text-secondary: #43574b;
-  --text-muted: #586c60;
+  --text-primary: #141518;
+  --text-secondary: #49463e;
+  --text-muted: #59554b;
 
-  --accent-primary: #b52d29;
-  --accent-hover: #96221e;
-  --accent-text: #b52d29;
-  --accent-ink: #e9e7dc;
+  --accent-primary: #a63224;
+  --accent-hover: #892519;
+  --accent-text: #9c2b1e;
+  --accent-ink: #f6f4ee;
 
   --sage-base: #82968a;
-  --border-rule: rgba(9, 35, 27, 0.2);
-  --border-strong: rgba(9, 35, 27, 0.5);
-  --focus-ring: #b52d29;
+  --border-rule: rgba(20, 21, 24, 0.15);
+  --border-strong: rgba(20, 21, 24, 0.34);
+  --focus-ring: #9c2b1e;
+
+  /* Atmospheric Studio Environments — Warm Daylight Gallery */
+  --hero-ambient-wash: radial-gradient(
+    circle at 72% 44%,
+    rgba(130, 150, 138, 0.16) 0%,
+    rgba(166, 50, 36, 0.045) 38%,
+    transparent 70%
+  );
+  --carousel-ambient-wash: radial-gradient(
+    ellipse at center,
+    rgba(130, 150, 138, 0.15) 0%,
+    rgba(166, 50, 36, 0.04) 48%,
+    transparent 75%
+  );
+  --portrait-studio-bg: radial-gradient(
+    circle at 50% 36%,
+    #f7f4ec 0%,
+    #e7e2d5 64%,
+    #dad3c3 100%
+  );
+  --card-shadow: 0 20px 52px -24px rgba(20, 21, 24, 0.16);
 }
 
 @theme inline {
   --color-canvas: var(--bg-canvas);
   --color-surface: var(--bg-surface);
+  --color-surface-recessed: var(--bg-surface-recessed);
   --color-surface-muted: var(--bg-surface-muted);
 
   --color-ink: var(--text-primary);
@@ -74,7 +115,7 @@
   --color-rule: var(--border-rule);
   --color-rule-strong: var(--border-strong);
 
-  --font-display: var(--font-barlow-condensed), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-newsreader), Georgia, Cambria, "Times New Roman", serif;
   --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
 }
